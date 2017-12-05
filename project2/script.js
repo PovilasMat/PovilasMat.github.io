@@ -8,7 +8,7 @@ function init() {
 
             return data.map(function (i) {return parseFloat(eval(dataset))});
         }
-        //var map = data.map(function (i) {return parseFloat(i.JAN)});
+
         var JAN = mapping("i.JAN");
         var FEB = mapping("i.FEB");
         var MAR = mapping("i.MAR");
