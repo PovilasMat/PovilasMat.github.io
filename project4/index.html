@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project 4</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+
+<div>
+    <h1>Project 4</h1>
+    <p>This is a font test.</p>
+</div>
+
+<div id="plot">
+    <div id="pca">
+        <script src="js/script.js"></script>
+    </div>
+
+    <div id="hand">
+    </div>
+</div>
+
+<div id="selectbox" align="right">
+    <select id="list" onchange="getSelectValue();">
+        <option selected="selected" value="d.feature1">PCR1</option>
+        <option value="d.feature2">PCR2</option>
+        <option value="d.feature3">PCR3</option>
+        <option value="d.feature4">PCR4</option>
+        <option value="d.feature5">PCR5</option>
+        <option value="d.feature6">PCR6</option>
+        <option value="d.feature7">PCR7</option>
+        <option value="d.feature8">PCR8</option>
+        <option value="d.feature9">PCR9</option>
+        <option value="d.feature10">PCR10</option>
+        <option value="d.feature11">PCR11</option>
+        <option value="d.feature12">PCR12</option>
+        <option value="d.feature13">PCR13</option>
+        <option value="d.feature14">PCR14</option>
+        <option value="d.feature15">PCR15</option>
+    </select>
+    <select id="list2" onchange="getSelectValue();">
+        <option value="d.feature1">PCR1</option>
+        <option selected="selected" value="d.feature2">PCR2</option>
+        <option value="d.feature3">PCR3</option>
+        <option value="d.feature4">PCR4</option>
+        <option value="d.feature5">PCR5</option>
+        <option value="d.feature6">PCR6</option>
+        <option value="d.feature7">PCR7</option>
+        <option value="d.feature8">PCR8</option>
+        <option value="d.feature9">PCR9</option>
+        <option value="d.feature10">PCR10</option>
+        <option value="d.feature11">PCR11</option>
+        <option value="d.feature12">PCR12</option>
+        <option value="d.feature13">PCR13</option>
+        <option value="d.feature14">PCR14</option>
+        <option value="d.feature15">PCR15</option>
+    </select>
+</div>
+
+<h1>Introduction</h1>
+<p>Genreally, Principal Component Analysis is a statistical method to simplify and analyze data. It can reduce the dimension of data and keep main features that contributes to data mostly.
+    The “principal components” are a linear combination of the original variables sorted by the variance,
+    where the first principal component has the largest variance.You can also read more about PCA <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">here</a></p>
+
+
+<p>We use <font color="#4682b4">hands.csv</font> containing 112 dimensions and 40 points to build following interactive visualisation.
+    This high dimensional data set contains information about the outline of a hand. Here we use <font color="#4682b4">handPCA.py</font> to
+    reduce the dimensionality and allow for analysis. In the end, we have first two principle components. We plot first principle component,
+    which contains the information with the most variance, against the second PC, which contains second highest variance.
+
+    By clicking the plotted points on the right side, the graph on the left will update with the corresponding outline of hand.
+
+    By hovering over the plotted points on the right side, its row index in data file and position will be showed.
+
+    By hovering over the outliers mentioned by following disicussion, the corresponding point will turn blue.
+
+<h1>Discussion:</h1>
+<p>For instance, when comparing the PC1 against PC2 we can get an overview of which feature correspond (is linked) to each one.
+If we take a look on one of the outliers, such as the <font id="outlier38" color="#ff7f50">outlier 38</font> and <font id="outlier40" color="#ff7f50">outlier 40</font>
+it can be seen when is compared to others that the PC1 contains the information about the distance between the thumb and the little finger and the PC2 contains the information
+    related to distance between the little and the ring finger.</p>
+
+
+
+
+
+
+
+</body>
+
+</html>
