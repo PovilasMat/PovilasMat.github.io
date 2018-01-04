@@ -26,14 +26,14 @@
 
   var projection = d3.geo.mercator()
       .center([-122.433701, 37.767683])
-      .scale(width*scaleMultiplier)
+      .scale(width*300)
       .translate([width / 2, height / 2])
 
   var path = d3.geo.path()
       .projection(projection)
 
   mapsvg
-      .call(renderTiles, 'highroad')
+		.call(renderTiles, 'highroad')
 
   function renderTiles(svg, type) {
     svg.append('g')
@@ -54,6 +54,39 @@
           })
         })
   }
+  
+    var xScale = d3.scale.linear()
+        .domain([-122.533701, -122.33701])
+        .range([0, width]);
+
+    var yScale = d3.scale.linear()
+        .domain([37.842683, 37.692683])
+        .range([0, width]);
+
+		
+  var bump = [1, 2];
+  var xx = -122.397842581798;
+  var yy = 37.7686952126247;
+  
+  d3.json("data/sf_crime_test.geojson", function(error, dataset){
+    if (error) throw error;
+	var dot_dataX = [];
+	var dot_dataY = [];
+	dataset.features.forEach(function (d) {
+		dot_dataX.push(xScale(d.properties.X));
+		dot_dataY.push(yScale(d.properties.Y));
+	})
+	var dots = mapsvg.selectAll(".dots")
+	for (i=0; i < dot_dataX.length; i++) { 
+		dots.data(dot_dataX)
+		.enter().append('circle')
+		.attr('class', "dot")
+		.attr('cx', dot_dataX[i])
+		.attr('cy', dot_dataY[i])
+		.attr('r', 2)
+		.attr('fill', 'red')
+	}
+  })
 
   function resize() {
     // adjust things when the window size changes
