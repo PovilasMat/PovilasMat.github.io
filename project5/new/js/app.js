@@ -265,12 +265,10 @@ makeplot(crime_filter, district_filter, year_filter, day_filter);
 
   //UPDATING VLAUES
   
-  function getSelectValue() {
+function getSelectValue() {
     var selectedValue = document.getElementById("list_crimes").value;
     var selectedValue2 = document.getElementById("list_district").value;
 	var selectedValue3 = document.getElementById("list_year").value;
     var selectedValue4 = document.getElementById("list_day").value;
     makeplot(selectedValue, selectedValue2, selectedValue3, selectedValue4);
-	
-	
 }
