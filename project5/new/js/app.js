@@ -83,7 +83,7 @@
 		.attr('class', "dot")
 		.attr('cx', dot_dataX[i])
 		.attr('cy', dot_dataY[i])
-		.attr('r', 2)
+		.attr('r', 1)
 		.attr('fill', 'red')
 	}
   })
