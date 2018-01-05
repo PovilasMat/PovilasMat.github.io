@@ -133,18 +133,21 @@ function makeplot(crime_filter, district_filter, year_filter, day_filter) {
 						{input_str: "EMBEZZLEMENT", dotcolor: "#ddf8e3"},
 						{input_str: "LIQUOR LAWS", dotcolor: "#edc0c2"}]
   }
-		
-  var bump = [1, 2];
+
   var radius = 1.5;
   
   d3.json("data/sf_crime.geojson", function(error, dataset){
     if (error) throw error;
 
+	var bump = [1,2];
+	
 	var dot_data = [];
+	var crime_count = 0;
 	dataset.features.forEach(function (d) {
 		if ((d.properties.Category == crime_filter || crime_filter == "All") && (d.properties.DayOfWeek == day_filter || day_filter == "All") && (d.properties.PdDistrict == district_filter || district_filter == "All") 
 			&& (d.properties.Dates.split("-", 1) == year_filter || year_filter == "All")) {
 			dot_data.push({x: xScale(d.properties.X), y: yScale(d.properties.Y), date: d.properties.Dates, category: d.properties.Category, description: d.properties.Descript, address: d.properties.Address});
+			crime_count = crime_count + 1;
 		} else {return;}
 	})
 	
@@ -178,6 +181,15 @@ function makeplot(crime_filter, district_filter, year_filter, day_filter) {
 		.attr('y', function (d, i) {return (54)+(10*i);})
 		.text(function (d) {return d.input_str;})
 	}
+	
+	var crime_count_text = mapsvg.selectAll(".crime_count_text")
+		.data(bump)
+		.enter()
+		.append('text')
+		.attr('font-size', "18px")
+		.attr('x', 250)
+		.attr('y', 55)
+		.text("Total number of crimes shown: " + crime_count)
   })
   
   // Create Event Handlers for mouse
