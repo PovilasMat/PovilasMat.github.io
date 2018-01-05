@@ -23,6 +23,93 @@
 	</div>
 	<script src="js/app.js" charset="utf-8"></script>
 
+	<div id="selectbox">
+    Type of Crime
+	<select id="list_crimes" onchange="getSelectValue();">
+        <option selected="selected" value="All">All</option>
+		<option value="BURGLARY">BURGLARY</option>
+        <option value="LARCENY/THEFT">LARCENY/THEFT</option>
+        <option value="VEHICLE THEFT">VEHICLE THEFT</option>
+        <option value="ASSAULT">ASSAULT</option>
+        <option value="WARRANTS">WARRANTS</option>
+        <option value="NON-CRIMINAL">NON-CRIMINAL</option>
+        <option value="VANDALISM">VANDALISM</option>
+        <option value="SUSPICIOUS OCC">SUSPICIOUS OCC</option>
+        <option value="DRUG/NARCOTIC">DRUG/NARCOTIC</option>
+        <option value="MISSING PERSON">MISSING PERSON</option>
+        <option value="FRAUD">FRAUD</option>
+        <option value="DRUNKENNESS">DRUNKENNESS</option>
+        <option value="TRESPASS">TRESPASS</option>
+        <option value="PROSTITUTION">PROSTITUTION</option>
+        <option value="ARSON">ARSON</option>
+        <option value="RUNAWAY">RUNAWAY</option>
+        <option value="RECOVERED VEHICLE">RECOVERED VEHICLE</option>
+        <option value="ROBBERY">ROBBERY</option>
+        <option value="FORGERY/COUNTERFEITING">FORGERY/COUNTERFEITING</option>
+        <option value="SUICIDE">SUICIDE</option>
+        <option value="DISORDERLY CONDUCT">DISORDERLY CONDUCT</option>
+        <option value="SECONDARY CODES">SECONDARY CODES</option>
+        <option value="EXTORTION">EXTORTION</option>
+        <option value="STOLEN PROPERTY">STOLEN PROPERTY</option>
+        <option value="WEAPON LAWS">WEAPON LAWS</option>
+        <option value="SEX OFFENSES FORCIBLE">SEX OFFENSES FORCIBLE</option>		
+		<option value="SEX OFFENSES NON FORCIBLE">SEX OFFENSES NON FORCIBLE</option>
+        <option value="DRIVING UNDER THE INFLUENCE">DRIVING UNDER THE INFLUENCE</option>
+        <option value="KIDNAPPING">KIDNAPPING</option>
+        <option value="EMBEZZLEMENT">EMBEZZLEMENT</option>
+        <option value="LIQUOR LAWS">LIQUOR LAWS</option>	
+        <option value="OTHER OFFENSES">OTHER OFFENSES</option>
+    </select>
+
+	</br>
+	</br>
+	District
+    <select id="list_district" onchange="getSelectValue();">
+        <option selected="selected" value="All">All</option>
+        <option value="INGLESIDE">Ingleside</option>
+        <option value="BAYVIEW">Bayview</option>
+        <option value="SOUTHERN">Southern</option>
+        <option value="MISSION">Mission</option>
+        <option value="TENDERLOIN">Tenderloin</option>
+        <option value="NORTHERN">Northern</option>
+        <option value="CENTRAL">Central</option>
+        <option value="TARAVAL">Taraval</option>
+        <option value="PARK">Park</option>
+        <option value="RICHMOND">Richmond</option>
+    </select>
+	</br>
+	</br>
+	Year
+    <select id="list_year" onchange="getSelectValue();">
+        <option selected="selected" value="All">All</option>
+        <option value="2003">2003</option>
+        <option value="2004">2004</option>
+        <option value="2005">2005</option>
+        <option value="2006">2006</option>
+        <option value="2007">2007</option>
+        <option value="2008">2008</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+	</select>
+	</br>
+	</br>
+	Week day
+    <select id="list_day" onchange="getSelectValue();">
+        <option selected="selected" value="All">All</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+    </select>    
+	</div>
 </body>
 
 </html>
