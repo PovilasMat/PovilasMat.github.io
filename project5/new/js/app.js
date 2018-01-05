@@ -61,14 +61,14 @@
 
     var yScale = d3.scale.linear()
         .domain([37.842683, 37.692683])
-        .range([0, width]);
+        .range([0, height]);
 
 		
   var bump = [1, 2];
   var xx = -122.397842581798;
   var yy = 37.7686952126247;
   
-  d3.json("data/sf_crime_test.geojson", function(error, dataset){
+  d3.json("data/sf_crime.geojson", function(error, dataset){
     if (error) throw error;
 	var dot_dataX = [];
 	var dot_dataY = [];
@@ -78,7 +78,7 @@
 	})
 	var dots = mapsvg.selectAll(".dots")
 	for (i=0; i < dot_dataX.length; i++) { 
-		dots.data(dot_dataX)
+		dots.data(bump)
 		.enter().append('circle')
 		.attr('class', "dot")
 		.attr('cx', dot_dataX[i])
