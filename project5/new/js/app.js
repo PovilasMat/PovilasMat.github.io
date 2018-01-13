@@ -1,6 +1,6 @@
 function makeplot(crime_filter, district_filter, year_filter, day_filter) {
   d3.select('#map_container').selectAll("*").remove();
-  console.log(crime_filter);
+
   var margin = {top: 10, left: 10, bottom: 10, right: 10},
       width = parseInt(d3.select('#map_container').style('width')),
       //width = 650,
@@ -12,12 +12,6 @@ function makeplot(crime_filter, district_filter, year_filter, day_filter) {
   var mapsvg = d3.select('#map_container').append('svg')
       .attr('height', height)
       .attr('id','map')
-
-  var colorMap = d3.map(),
-      keymap = []
-
-  var quantize = d3.scale.quantize()
-      .range(d3.range(9).map(function(i) { return 'q' + i + '-9' }))
 
   var tiler = d3.geo.tile()
       .size([width, height])
