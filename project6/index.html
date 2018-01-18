@@ -1,17 +1,81 @@
-<! DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-    <script src="https://d3js.org/d3-transition.v1.min.js"></script>
-    <script src="https://rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
-    <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/renderers/CSS3DRenderer.js"></script>
-    <!-- <script src="js/elements.js"></script> -->
-    <!-- <link rel="stylesheet" href="css/sheet.css"> -->
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #mapid { width: 880px; }
+        #mapid { height: 580px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+    <!--<script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="js/d3.geo.tile.v0.min.js"></script>-->
+
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
 </head>
-
 <body>
+<div id="mapid"></div>
+<script>
+    var map = L.map('mapid').setView([55.683055, 12.580991], 12);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 15,
+        minZoom: 10,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoicG92aWxhc20iLCJhIjoiY2pjYWs5c3oxMDg1NDJ5bWhucHZhMnRhdCJ9.6omrh7wQzf1l2DV9qECTtA'
+    })
+        .addTo(map);
 
+    var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+
+    var drawControlFull = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        },
+        draw: {
+            polyline:false,
+            polygon:false,
+            circle:false,
+            marker:false
+        }
+    });
+
+
+    var drawControlEditOnly = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        },
+        draw: false
+    });
+
+    map.addControl(drawControlFull);
+
+    map.on("draw:created", function (e) {
+        var layer = e.layer;
+        layer.addTo(drawnItems);
+        drawControlFull.remove(map);
+        drawControlEditOnly.addTo(map)
+
+        // When a user finishes editing a shape we get that information here
+        console.log(JSON.stringify(layer.toGeoJSON()));
+    });
+
+    map.on("draw:deleted", function(e) {
+        drawControlEditOnly.remove(map);
+        drawControlFull.addTo(map);
+    });
+
+    map.setMaxBounds([[55.5, 12],[55.9, 13.1]]);
+    map.on('drag', function() {
+        map.panInsideBounds([[55.5, 12],[55.9, 13.1]], { animate: false });
+    });
+
+</script>
 </body>
-
 </html>
+
