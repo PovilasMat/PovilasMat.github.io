@@ -25,18 +25,26 @@
     <!--Inner links-->
     <!--js-->
     <script src="js/main.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="js/districts.js"></script>
+    <!--<script src="js/demo.js"></script>-->
     <!--stylesheets-->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main_Pov.css">
     <link rel="stylesheet" href="css/filter_list.css">
 </head>
 
 <div>
 
-<div class="airbnb">
-    <img src="img/airbnb_logo.png"/>
+<div id="logo_parent_div">
+	<div class="cph_logo">
+		<img src="img/Copenhagen_new.png"/>
+	</div>
+	<div class="airbnb">
+		<img src="img/airbnb_logo.png"/>
+	</div>
 </div>
 
-<nav class="nav_bar">
+<nav id="nav_bar">
     <ul class="nav_ul">
         <li class="nav_li"><a href="#neighbour">Browsing</a></li>
         <li class="nav_li"><a href="chooseRoom.html">Choose Your Room</a></li>
@@ -44,14 +52,9 @@
     </ul>
 </nav>
 
-<!--<div id="img_cph">-->
-    <!--<img src="img/copenhagen_main.jpg"/>-->
-<!--</div>-->
-
 <div id="searchDistricts">
     <div id="districtsMap"></div>
-
-    <div id="neighbour">
+    <div class="neighbour">
         <input type="text" id="myNeighInput" placeholder="Search for neighbourhood.." title="Type in a name">
         <ul id="myNeighList"></ul>
     </div>
@@ -67,7 +70,6 @@
         <li> District Map: <a href="http://leafletjs.com/examples/choropleth/"> http://leafletjs.com/examples/choropleth/ </a></li>
         <li> District Dataset: <a href="http://data.kk.dk/">http://data.kk.dk/</a></li>
         <li> Google Map: <a href="https://developers.google.com/maps/documentation/javascript/examples/">https://developers.google.com/maps/documentation/javascript/examples/</a></li>
-        <li> Sortable table: <a href="http://bl.ocks.org/AMDS/4a61497182b8fcb05906"> http://bl.ocks.org/AMDS/4a61497182b8fcb05906 </a> </li>
     </ul>
 </div>
 

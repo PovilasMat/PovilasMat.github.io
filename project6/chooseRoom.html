@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chooseRoom.css">
+    <script src="js/chooseRoom.js"></script>
+    <title>Perfect matches for you</title>
+</head>
+
+<body>
+
+<div class="airbnb">
+    <img src="img/airbnb_logo.png"/>
+</div>
+
+<nav class="nav_bar">
+    <ul class="nav_ul">
+        <li class="nav_li"><a href="index.html">Browsing</a></li>
+        <li class="nav_li"><a href="chooseRoom.html">Choose Your Room</a></li>
+        <li class="nav_li"><a href="#">Analysis</a></li>
+    </ul>
+</nav>
+
+<div class="form">
+    <form id="neigh_checkbox">
+        <b>Neighbourhood:</b> <br/>
+        <ul id="neigh_list"></ul>
+    </form>
+    <button type="button" onclick="checkAll()">Check All</button>
+    <button type="button" onclick="uncheckAll()">Uncheck All</button>
+    <br/><br/>
+    <form id="neigh_lists">
+        <b>Room type:</b> <br/>
+        <input id="roomtype" list="rooms" name="type">
+        <datalist id = "rooms">
+        </datalist>
+    </form><br/>
+
+    <form id="price_range">
+        <b>Price range: </b> <br/>
+        <input type="number" id="price_min" name="minimum" min="0" value="-1"> - <input type="number" id="price_max" name="maximum" min="0" value="-1">
+    </form><br/>
+
+    <form id="stay_range">
+        <b>Stay nights: </b><br/>
+        <input id="stay_nights">
+    </form><br/>
+
+    <input type="reset" onclick="handleReset()">
+    <input type="submit" onclick="handleClick()">
+</div>
+<div id="report">
+    <b>Report:</b><br/><br/>
+</div>
+
+<div id="tabelDiv">
+    <div id="roomTable"></div>
+</div>
+
+</body>
+</html>
